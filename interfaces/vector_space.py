@@ -37,6 +37,7 @@ class VectorSpace:
         return [0]
 
     def eval(self, c, x):
+        "evaluate"
         assert len(c) == self.n_dofs, \
             'Incompatible vector. It should have length %. It has lenght %'.format(self.n_dofs, len(c))
         # Find the cell where x lies:
@@ -44,7 +45,7 @@ class VectorSpace:
         # TBD: make this function aware of locality
         for i in xrange(self.n_dofs):
             y += self.basis(i)(x)*c[i]
-    
+
     def element(self, c):
         assert len(c) == self.n_dofs, \
             'Incompatible vector. It should have length %. It has lenght %'.format(self.n_dofs, len(c))
